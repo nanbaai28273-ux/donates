@@ -1,0 +1,1572 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arielle · A desperate girl — SOS Human Help</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #1a2b3c;
+            line-height: 1.6;
+            min-width: 320px;
+            overflow-x: hidden;
+            padding-bottom: calc(104px + env(safe-area-inset-bottom));
+        }
+
+        img,
+        video {
+            max-width: 100%;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            padding-right: clamp(16px, 5vw, 20px);
+            padding-left: clamp(16px, 5vw, 20px);
+        }
+
+        /* ---------- HEADER ---------- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #eaeef2;
+            background: #ffffff;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 66px;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-inner .logo img {
+            height: 46px;
+            max-width: min(52vw, 190px);
+            width: auto;
+            object-fit: contain;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: #2563eb;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            transition: opacity 0.2s;
+        }
+        .icon-btn:hover {
+            opacity: 0.7;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: #ffffff;
+            padding: 32px 20px 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 7.6vw, 40px);
+            font-weight: 800;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
+        }
+        .hero h1 em {
+            display: block;
+            font-style: italic;
+            color: #2563eb;
+        }
+
+        /* Video wrapper - tỉ lệ 9:16 dành cho điện thoại dọc */
+        .hero .video-wrapper {
+            margin-top: 24px;
+            width: min(100%, 400px);
+            aspect-ratio: 9 / 16;
+            margin-right: auto;
+            margin-left: auto;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* ---------- DONATION STATS (trong hero) ---------- */
+        .stats {
+            margin-top: 24px;
+        }
+        .stats .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 16px;
+        }
+        .stats .amount {
+            font-size: clamp(21px, 6vw, 26px);
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .stats .text-right {
+            text-align: right;
+        }
+        .stats .label {
+            font-size: 15px;
+            color: #6b7a90;
+        }
+        .stats .bar {
+            margin-top: 12px;
+            height: 6px;
+            width: 100%;
+            background: #e9e9e9;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .stats .bar .fill {
+            height: 100%;
+            width: 1%;
+            background: #f3b639;
+            border-radius: 999px;
+        }
+        .stats .meta {
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px 16px;
+            font-size: 14px;
+        }
+        .stats .meta .goal {
+            font-weight: 700;
+            color: #2563eb;
+        }
+        .stats .meta .supporters {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #6b7a90;
+        }
+        .stats .meta .supporters .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #18b85b;
+            display: inline-block;
+        }
+
+        .btn-donate {
+            margin-top: 24px;
+            width: 100%;
+            padding: 16px;
+            background: #f3b639;
+            border: none;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #1a2b3c;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.2s;
+            text-decoration: none;
+            min-height: 52px;
+        }
+        .btn-donate:hover {
+            background: #e5a82e;
+        }
+
+        .badge-safe {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7a90;
+        }
+        .badge-safe .check {
+            color: #18b85b;
+        }
+
+        /* ---------- SECTION COMMON ---------- */
+        section {
+            padding: clamp(32px, 9vw, 40px) 0;
+        }
+        .section-title {
+            font-size: clamp(23px, 6.5vw, 30px);
+            font-weight: 800;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+        }
+        .section-title .icon {
+            color: #2563eb;
+            display: inline-flex;
+        }
+
+        .bg-surface {
+            background: #f8fafc;
+        }
+        .bg-white {
+            background: #ffffff;
+        }
+
+        /* ---------- SLIDER ---------- */
+        .slider-wrapper {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 24px;
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 610 / 614;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            border: none;
+            font-size: 28px;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+            line-height: 1;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            touch-action: manipulation;
+        }
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.75);
+        }
+        .slider-btn.prev {
+            left: 12px;
+        }
+        .slider-btn.next {
+            right: 12px;
+        }
+
+        .badge-counter {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            z-index: 5;
+            letter-spacing: 0.02em;
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cfd6dd;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .dots span.active {
+            width: 28px;
+            background: #2563eb;
+            border-radius: 6px;
+        }
+
+        /* ---------- ABOUT ---------- */
+        .about .content {
+            margin-top: 24px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: #1a2b3c;
+        }
+        .about .content strong {
+            color: #2563eb;
+        }
+        .about .blockquote {
+            margin-top: 24px;
+            border-left: 4px solid #f3b639;
+            background: #fbf6ea;
+            padding: 16px 20px;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #1a2b3c;
+        }
+
+        /* ---------- WHAT SHE NEEDS ---------- */
+        .need-card .info {
+            padding: 16px 20px;
+        }
+        .need-card .info h3 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+        .need-card .info p {
+            margin-top: 4px;
+            font-size: 15px;
+            color: #6b7a90;
+        }
+        .need-card .slider-wrapper img {
+            aspect-ratio: 608 / 458;
+        }
+
+        /* ---------- DONATION SECTION ---------- */
+        .donation-box {
+            margin-top: 24px;
+            border: 1px solid #eaeef2;
+            border-radius: 12px;
+            padding: 24px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        .donation-box .header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .donation-box .header .icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #d9eefb;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .donation-box .header h3 {
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .donation-box p {
+            margin-top: 16px;
+            font-size: 15px;
+            color: #6b7a90;
+        }
+
+        .btn-paypal {
+            margin-top: 20px;
+            width: 100%;
+            padding: 14px;
+            background: #f3b639;
+            border: none;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #1a2b3c;
+            transition: background 0.2s;
+        }
+        .btn-paypal:hover {
+            background: #e5a82e;
+        }
+
+        .donation-box .recipient {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #6b7a90;
+        }
+        .donation-box .recipient strong {
+            color: #1a2b3c;
+        }
+
+        /* ---------- DONATION OPTIONS ---------- */
+        .donate-options {
+            margin-top: 30px;
+        }
+
+        .donate-options .section-sub {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .donate-options .section-sub h2 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+        .donate-options .section-sub p {
+            font-size: 15px;
+            color: #6b7a90;
+            margin-top: 6px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .option-card {
+            background: #f8fafc;
+            border: 1px solid #eaeef2;
+            border-radius: 16px;
+            padding: 20px 16px 18px;
+            text-align: center;
+            transition: all 0.2s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .option-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-color: #2563eb;
+        }
+        .option-card .amount {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2563eb;
+            line-height: 1.2;
+        }
+        .option-card .label {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 6px 0 4px;
+            color: #1a2b3c;
+        }
+        .option-card .desc {
+            font-size: 13px;
+            color: #6b7a90;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+        .option-card .badge-popular {
+            background: #f3b639;
+            color: #1a2b3c;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 2px 12px;
+            border-radius: 50px;
+            position: absolute;
+            top: -8px;
+            right: -6px;
+            box-shadow: 0 2px 6px rgba(243, 182, 57, 0.3);
+        }
+
+        .donate-footer-note {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px 24px;
+            font-size: 14px;
+            color: #4b5b6b;
+        }
+        .donate-footer-note span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .donate-footer-note .check-icon {
+            font-size: 18px;
+        }
+
+        /* ---------- IMPACT ---------- */
+        .impact-list {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .impact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #eaeef2;
+            background: #ececec;
+        }
+        .impact-item.green {
+            background: #e6f5ed;
+            border-color: #bfe0c9;
+        }
+        .impact-item .icon-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .impact-item .icon-circle.red {
+            background: #e53e3e;
+        }
+        .impact-item .icon-circle.green {
+            background: #18b85b;
+        }
+        .impact-item p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .impact-item p strong {
+            font-weight: 800;
+        }
+
+        .impact-footer {
+            margin-top: 24px;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+        .impact-footer strong {
+            color: #2563eb;
+        }
+
+        /* ---------- TRANSPARENCY ---------- */
+        .transparency-table {
+            margin-top: 20px;
+            border: 1px solid #eaeef2;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .transparency-table .table-header {
+            background: #111;
+            color: #fff;
+            padding: 14px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .transparency-table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 400px;
+        }
+        .transparency-table td {
+            padding: 14px 16px;
+            font-size: 15px;
+            border-top: 1px solid #eaeef2;
+        }
+        .transparency-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+            color: #2563eb;
+            width: 110px;
+            border-left: 1px solid #eaeef2;
+        }
+        .transparency-table .total td {
+            background: #fafafa;
+            font-weight: 800;
+            color: #1a2b3c;
+        }
+        .transparency-table .total td:last-child {
+            font-weight: 800;
+            color: #2563eb;
+        }
+        .color-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* ---------- UPDATES ---------- */
+        .timeline {
+            position: relative;
+            margin-top: 32px;
+            padding-left: 24px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #d6d6d6;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 32px;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-item .dot {
+            position: absolute;
+            left: -24px;
+            top: 3px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            border: 3px solid #f3b639;
+            background: #fff;
+        }
+        .timeline-item .dot.blue {
+            border-color: #2563eb;
+        }
+        .timeline-item .date {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #2563eb;
+        }
+        .timeline-item h3 {
+            font-size: 17px;
+            font-weight: 800;
+            margin-top: 4px;
+        }
+        .timeline-item p {
+            font-size: 15px;
+            line-height: 1.65;
+            color: #6b7a90;
+            margin-top: 6px;
+        }
+
+        /* ---------- FAQ ---------- */
+        .faq-item {
+            margin-top: 20px;
+            border-bottom: 1px solid #eaeef2;
+            padding-bottom: 16px;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item .question {
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            cursor: pointer;
+        }
+        .faq-item .question span {
+            flex: 0 0 auto;
+        }
+        .faq-item .answer {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #6b7a90;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            margin-top: 40px;
+            padding: 40px 20px;
+            background: #1a2b3c;
+            color: #cbd5e1;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+        footer a {
+            color: #93b4f8;
+        }
+
+        /* ---------- STICKY DONATE BAR (CỐ ĐỊNH DƯỚI CÙNG) ---------- */
+        .sticky-donate {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: #ffffff;
+            border-top: 1px solid #eaeef2;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+            padding: 12px max(20px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .sticky-donate .left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sticky-donate .progress-mini {
+            flex: 1;
+            min-width: 60px;
+        }
+
+        .sticky-donate .progress-mini .bar {
+            height: 4px;
+            background: #e9e9e9;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .sticky-donate .progress-mini .bar .fill {
+            height: 100%;
+            width: 1%;
+            background: #f3b639;
+            border-radius: 999px;
+        }
+
+        .sticky-donate .info {
+            font-size: 13px;
+            color: #6b7a90;
+            white-space: nowrap;
+        }
+        .sticky-donate .info strong {
+            color: #1a2b3c;
+            font-weight: 700;
+        }
+
+        .sticky-donate .btn-sticky-donate {
+            background: #f3b639;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #1a2b3c;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-shrink: 0;
+            min-height: 44px;
+        }
+        .sticky-donate .btn-sticky-donate:hover {
+            background: #e5a82e;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (min-width: 640px) {
+            .options-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-bottom: calc(94px + env(safe-area-inset-bottom));
+            }
+
+            .header-inner {
+                height: 58px;
+                padding-right: 12px;
+                padding-left: 12px;
+            }
+
+            .header-inner .logo img {
+                height: 40px;
+            }
+
+            .hero {
+                padding-top: 22px;
+            }
+
+            .hero .video-wrapper {
+                margin-top: 18px;
+                border-radius: 10px;
+            }
+
+            .stats {
+                margin-top: 20px;
+            }
+
+            .stats .label,
+            .stats .meta {
+                font-size: 13px;
+            }
+
+            .stats .meta {
+                flex-wrap: wrap;
+            }
+
+            .btn-donate {
+                margin-top: 20px;
+                padding: 14px 16px;
+            }
+
+            .badge-safe {
+                font-size: 13px;
+                text-align: center;
+            }
+
+            .donation-box {
+                padding: 20px 16px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px 10px;
+            }
+            .option-card {
+                padding: 16px 12px;
+                border-radius: 12px;
+            }
+            .option-card .amount {
+                font-size: 24px;
+            }
+            .option-card .desc {
+                font-size: 12px;
+            }
+            .option-card .badge-popular {
+                right: -4px;
+                padding-right: 8px;
+                padding-left: 8px;
+            }
+            .slider-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 20px;
+                padding: 0;
+            }
+            .slider-btn.prev {
+                left: 8px;
+            }
+            .slider-btn.next {
+                right: 8px;
+            }
+            .badge-counter {
+                top: 10px;
+                right: 10px;
+                padding: 3px 10px;
+                font-size: 12px;
+            }
+            .donate-options .section-sub h2 {
+                font-size: 22px;
+            }
+
+            .donate-options .section-sub {
+                margin-bottom: 26px;
+            }
+
+            .donate-footer-note {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .impact-item {
+                padding: 14px;
+            }
+
+            .transparency-table {
+                overflow: hidden;
+            }
+
+            .transparency-table table,
+            .transparency-table tbody {
+                display: block;
+                min-width: 0;
+                width: 100%;
+            }
+
+            .transparency-table tr {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                width: 100%;
+            }
+
+            .transparency-table td {
+                min-width: 0;
+                padding: 12px;
+                font-size: 13px;
+                overflow-wrap: anywhere;
+            }
+
+            .transparency-table td:last-child {
+                width: auto;
+                min-width: 84px;
+            }
+
+            .sticky-donate {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                padding: 9px max(12px, env(safe-area-inset-right)) calc(9px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+                flex-wrap: nowrap;
+            }
+            .sticky-donate .left {
+                display: grid;
+                grid-template-columns: auto minmax(72px, 1fr);
+                gap: 10px;
+            }
+            .sticky-donate .info {
+                font-size: 12px;
+                white-space: nowrap;
+            }
+            .sticky-donate .btn-sticky-donate {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            .sticky-donate .progress-mini {
+                min-width: 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .stats .meta {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .sticky-donate .btn-sticky-donate {
+                padding-right: 12px;
+                padding-left: 12px;
+            }
+
+            .sticky-donate .progress-mini .info {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-card {
+                min-height: 0;
+            }
+
+            .sticky-donate .left > .info {
+                display: none;
+            }
+
+            .sticky-donate .left {
+                grid-template-columns: minmax(80px, 1fr);
+            }
+        }
+
+        @media (hover: none) {
+            .option-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="header-inner">
+            <button class="icon-btn" aria-label="Menu">☰</button>
+            <a href="#" class="logo" aria-label="Arielle">
+                <img id="logo-img" src="" alt="SOS Human Help" />
+            </a>
+            <button class="icon-btn" aria-label="Share">↗</button>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero container">
+        <h1>
+            A desperate girl!
+            <em>Arielle feels pain even when the wind touches her skin.</em>
+        </h1>
+
+        <!-- Video 9:16 (dọc) - hiển thị đúng tỉ lệ, không bị cắt -->
+        <div class="video-wrapper">
+            <video src="https://zzpi.cc/s11/v5OwDWUA.mp4" controls poster="https://zzpi.cc/s11/v5OwDWUA.fr.jpeg"></video>
+        </div>
+
+        <div class="stats">
+            <div class="row">
+                <div>
+                    <div class="amount">$1,005.73</div>
+                    <div class="label">Raised</div>
+                </div>
+                <div class="text-right">
+                    <div class="amount">$93,550.00</div>
+                    <div class="label">Goal</div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="fill"></div>
+            </div>
+            <div class="meta">
+                <span class="goal">1% of goal reached</span>
+                <span class="supporters">
+                    <span class="dot"></span> 34 supporters
+                </span>
+            </div>
+        </div>
+
+        <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN" target="_blank" class="btn-donate">
+            ❤ I want to help now
+        </a>
+
+        <div class="badge-safe">
+            <span class="check">✔</span> 100% safe and verified project
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="sobre" class="bg-surface">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">👤</span> Who Is Arielle?
+            </h2>
+
+            <div class="about">
+                <div class="slider-wrapper" id="slider-about">
+                    <img id="about-img" src="" alt="Arielle" />
+                    <button class="slider-btn prev" data-slider="about">‹</button>
+                    <button class="slider-btn next" data-slider="about">›</button>
+                    <span class="badge-counter" id="about-counter">1 / 4</span>
+                </div>
+                <div class="dots" id="about-dots">
+                    <span class="active" data-index="0"></span>
+                    <span data-index="1"></span>
+                    <span data-index="2"></span>
+                    <span data-index="3"></span>
+                </div>
+
+                <div class="content">
+                    <p>I'm <strong>Arielle</strong>, I'm from the countryside, and every day I live with a rare disease that causes painful wounds all over my body.</p>
+                    <p>Every new wound means more pain. Every flare-up requires care I can't afford on my own. The treatments and supplies I need <strong>already exceed $90,000.</strong></p>
+                </div>
+
+                <div class="blockquote">
+                    Please help me keep fighting. <strong>Your donation is a night without pain in my life.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHAT SHE NEEDS ========== -->
+    <section id="projetos" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">💼</span> What <span style="color:#2563eb;">does she need?</span>
+            </h2>
+
+            <div class="need-card">
+                <div class="slider-wrapper" id="slider-need">
+                    <img id="need-img" src="" alt="Special Wound Dressings" />
+                    <button class="slider-btn prev" data-slider="need">‹</button>
+                    <button class="slider-btn next" data-slider="need">›</button>
+                    <span class="badge-counter" id="need-counter">1 / 4</span>
+                </div>
+                <div class="dots" id="need-dots">
+                    <span class="active" data-index="0"></span>
+                    <span data-index="1"></span>
+                    <span data-index="2"></span>
+                    <span data-index="3"></span>
+                </div>
+                <div class="info">
+                    <h3>Special Wound Dressings</h3>
+                    <p>They protect open wounds, speed up healing, and can cost more than $30,000 a month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DONATE ========== -->
+    <section id="pix-direto" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">❤️</span> Make a Donation
+            </h2>
+
+            <div class="donation-box">
+                <div class="header">
+                    <span class="icon-circle">❤</span>
+                    <h3>Give directly and securely</h3>
+                </div>
+                <p>Select an amount below to give safely. Your support reaches Arielle's care with full protection.</p>
+
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN" target="_blank" class="btn-paypal">
+                    ❤ Donate now
+                </a>
+
+                <p class="recipient">Recipient: <strong>SOS Human Help</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DONATION OPTIONS (TIẾNG ANH, BẤM VÀO THẺ LÀ DONATE) ========== -->
+    <section class="bg-surface">
+        <div class="container donate-options">
+            <div class="section-sub">
+                <h2>YOUR GIFT, HER RELIEF</h2>
+                <p>Choose the help you want to give Arielle — every amount below turns into something real for her.</p>
+            </div>
+
+            <div class="options-grid">
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN?amount=25" target="_blank" class="option-card">
+                    <div class="amount">$25</div>
+                    <div class="label">A calmer night</div>
+                    <div class="desc">Covers one full set of sterile dressings — one night without burning pain.</div>
+                </a>
+
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN?amount=30" target="_blank" class="option-card">
+                    <div class="amount">$30</div>
+                    <div class="label">Soothing care</div>
+                    <div class="desc">Buys the ointments and creams that keep her wounds from getting infected.</div>
+                </a>
+
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN?amount=50" target="_blank" class="option-card" style="border-color: #f3b639; background: #fef9ed;">
+                    <span class="badge-popular">🏆 Most chosen</span>
+                    <div class="amount">$50</div>
+                    <div class="label">Two days of relief</div>
+                    <div class="desc">Two complete dressing changes, done gently, the way her skin needs.</div>
+                </a>
+
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN?amount=75" target="_blank" class="option-card">
+                    <div class="amount">$75</div>
+                    <div class="label">Strength to heal</div>
+                    <div class="desc">A month of the vitamins and liquid nutrition her body can actually absorb.</div>
+                </a>
+
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN?amount=100" target="_blank" class="option-card">
+                    <div class="amount">$100</div>
+                    <div class="label">A doctor by her side</div>
+                    <div class="desc">Pays for one dermatology visit and the tests that guide her treatment.</div>
+                </a>
+
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN?amount=150" target="_blank" class="option-card">
+                    <div class="amount">$150</div>
+                    <div class="label">A full week of care</div>
+                    <div class="desc">Seven days of dressings, medication and pain control — without her mother choosing what to skip.</div>
+                </a>
+
+                <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN?amount=200" target="_blank" class="option-card">
+                    <div class="amount">$200</div>
+                    <div class="label">A month of hope</div>
+                    <div class="desc">Keeps transport, consultations and skin care running so treatment never stops.</div>
+                </a>
+            </div>
+
+            <div class="donate-footer-note">
+                <span><span class="check-icon">✅</span> Verified campaign · SOS Human Help</span>
+                <span><span class="check-icon">⚠️</span> Secure payment</span>
+                <span><span class="check-icon">⏱️</span> 100% goes to Arielle</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== IMPACT ========== -->
+    <section id="impacto" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">🤝</span> The Impact of Your Donation
+            </h2>
+
+            <div class="impact-list">
+                <div class="impact-item">
+                    <span class="icon-circle red">✕</span>
+                    <p><strong>Without you,</strong> Arielle may keep suffering from intense flare-ups, wounds, and blood loss</p>
+                </div>
+                <div class="impact-item">
+                    <span class="icon-circle red">✕</span>
+                    <p><strong>Without help,</strong> she can't keep up with the treatment and care she needs</p>
+                </div>
+                <div class="impact-item">
+                    <span class="icon-circle red">✕</span>
+                    <p><strong>Without treatment,</strong> the disease can keep progressing and putting Arielle's life at risk</p>
+                </div>
+                <div class="impact-item green">
+                    <span class="icon-circle green">✔</span>
+                    <p><strong>With you,</strong> Arielle can get better wound dressings and reduce her suffering</p>
+                </div>
+                <div class="impact-item green">
+                    <span class="icon-circle green">✔</span>
+                    <p><strong>With you,</strong> she can secure medical visits, medication, and care to live with more independence</p>
+                </div>
+                <div class="impact-item green">
+                    <span class="icon-circle green">✔</span>
+                    <p><strong>With you,</strong> a little girl can go back to living her life with dignity and hope</p>
+                </div>
+            </div>
+
+            <div class="impact-footer">
+                Every donation, no matter how small, is the difference between Arielle having a night without pain or not. <strong>She can't do this alone.</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TRANSPARENCY ========== -->
+    <section id="transparencia" class="bg-surface">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">🛡️</span> Full Transparency
+            </h2>
+            <p style="margin-top:20px; font-size:16px;">See where every dollar raised in the campaign goes:</p>
+
+            <div class="transparency-table">
+                <div class="table-header">Monthly Costs</div>
+                <table>
+                    <tr>
+                        <td><span class="color-dot" style="background:#0189d8;"></span>Special wound dressings for EB</td>
+                        <td>$86,800</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background:#18b85b;"></span>Medical visits and tests</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background:#0189d8;"></span>Gastroenterologist (2x/month)</td>
+                        <td>$1,000</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background:#0189d8;"></span>Dermatologist (2x/month)</td>
+                        <td>$750</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background:#f3b639;"></span>Supplements, vitamins and medications</td>
+                        <td>$600</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background:#8fd3f4;"></span>Nutritionist (2x/month)</td>
+                        <td>$600</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background:#6b7a90;"></span>Transportation and other expenses</td>
+                        <td>$500</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-dot" style="background:#0189d8;"></span>Moisturizers and skin care</td>
+                        <td>$300</td>
+                    </tr>
+                    <tr class="total">
+                        <td><strong>Total needed (monthly)</strong></td>
+                        <td><strong>$93,550</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== UPDATES ========== -->
+    <section id="atualizacoes" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">🕐</span> Updates
+            </h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="dot"></span>
+                    <div class="date">Jul 2026 · Campaign launched</div>
+                    <h3>Arielle's story went online</h3>
+                    <p>The campaign started to spread, but the amount raised is still far from what Arielle needs. <strong>Every share and donation brings her closer to full treatment.</strong></p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="dot blue"></span>
+                    <div class="date">Jun 2026 · Arielle gets worse</div>
+                    <h3>Treatment costs skyrocketed</h3>
+                    <p>New wounds appeared over larger areas of her body, and dressings started being changed almost every day. The cost keeps growing, adding up medication, medical visits, and dressings every week.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="dot blue"></span>
+                    <div class="date">Feb 2026 · Crisis at home</div>
+                    <h3>The month's bills don't add up</h3>
+                    <p>Between medication, household bills, and dressing supplies, the family ran out of money to cover the treatment in the same month. Arielle's mother had to stretch every penny.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="dot blue"></span>
+                    <div class="date">Nov 2025</div>
+                    <h3>Legal case opened to get dressings</h3>
+                    <p>The family filed a legal case asking the government for proper dressings for the disease, but still hasn't succeeded to this day. That impasse is what led to this campaign.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq" class="bg-surface">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">❓</span> Questions and Answers
+            </h2>
+
+            <div class="faq-item">
+                <div class="question">How is the money used? <span>+</span></div>
+                <div class="answer">Every dollar goes directly to Arielle's medical treatments, wound dressings, and essential care. Full transparency is provided above.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Who is SOS Human Help? <span>+</span></div>
+                <div class="answer">SOS Human Help is the organization managing this campaign, ensuring all funds reach Arielle safely and transparently.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Is my donation secure? <span>+</span></div>
+                <div class="answer">Yes, all donations are processed securely and the project is 100% verified.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SOS Human Help. All rights reserved.</p>
+            <p>Built with ❤️ for Arielle</p>
+            <p style="margin-top:8px;">
+                <a href="https://www.instagram.com/soshumanhelpus" target="_blank">Instagram</a> &middot;
+                <a href="https://www.facebook.com/" target="_blank">Facebook</a> &middot;
+                <a href="https://soshumanhelp.com/" target="_blank">Main Website</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ========== STICKY DONATE BAR ========== -->
+    <div class="sticky-donate" id="stickyDonate">
+        <div class="left">
+            <div class="info">
+                <strong id="sticky-raised">$1,005.73</strong> raised
+            </div>
+            <div class="progress-mini">
+                <div class="bar">
+                    <div class="fill" id="sticky-fill" style="width:1%;"></div>
+                </div>
+                <div class="info" style="font-size:11px; margin-top:2px;">
+                    <span id="sticky-percent">1%</span> · <span id="sticky-supporters">34</span> supporters
+                </div>
+            </div>
+        </div>
+        <a href="https://www.paypal.com/ncp/payment/TVKNZ8LEU2SMN" target="_blank" class="btn-sticky-donate">
+            ❤ Donate
+        </a>
+    </div>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ====================================================================
+        // ===== THAY ĐỔI ĐƯỜNG DẪN ẢNH, VIDEO, LOGO TẠI ĐÂY =====
+        // Chỉ cần sửa các giá trị trong object dưới đây.
+        // ====================================================================
+        const IMAGE_PATHS = {
+            // Logo (trên header)
+            logo: "img/logo-png-SOS-HUMAN-US-Df7wMT1t.webp",
+
+            // 4 Ảnh của Arielle (phần "Who Is Arielle?")
+            about: [
+                "img/1-us-DnAUQr5i.webp",
+                "img/2-us-11axNCNw.webp",
+                "img/3-us-Cstdo-_4.webp",
+                "img/4-us-CGY_ZYkp.webp"
+            ],
+
+            // 4 Ảnh về nhu cầu (phần "What does she need?")
+            need: [
+                "img/healing-DpnKOT2L.webp",
+                "img/medicines-Bv5slQkp.webp",
+                "img/consultations-and-tests--zrhxz5e.webp",
+                "img/vitamins-and-supplements-6oX8nK4-.webp"
+            ],
+
+            // Video giới thiệu (đường dẫn đến file video)
+            video: "img/0820.mp4",
+
+            // Poster cho video (ảnh đại diện trước khi phát)
+            poster: "img/video-poster.jpg"
+        };
+        // ====================================================================
+        // ===== KẾT THÚC KHU VỰC THAY ĐỔI =====
+        // ====================================================================
+
+        // --- Gán logo ---
+        document.getElementById('logo-img').src = IMAGE_PATHS.logo;
+
+        // --- Gán video và poster ---
+        const video = document.getElementById('hero-video');
+        if (video) {
+            video.poster = IMAGE_PATHS.poster;
+            const source = video.querySelector('source');
+            if (source) {
+                source.src = IMAGE_PATHS.video;
+                video.load();
+            }
+        }
+
+        // --- Cập nhật thanh sticky với số liệu từ stats ---
+        function updateStickyBar() {
+            const raised = document.querySelector('.stats .amount')?.textContent || '$1,005.73';
+            const percentText = document.querySelector('.stats .meta .goal')?.textContent || '1% of goal reached';
+            const percent = percentText.replace(' of goal reached', '');
+            const supportersText = document.querySelector('.stats .meta .supporters')?.textContent?.trim() || '34 supporters';
+            const supporters = supportersText.replace(' supporters', '').replace('●', '').trim();
+
+            document.getElementById('sticky-raised').textContent = raised;
+            document.getElementById('sticky-percent').textContent = percent;
+            document.getElementById('sticky-supporters').textContent = supporters;
+
+            const fill = document.getElementById('sticky-fill');
+            const p = parseFloat(percent) || 1;
+            fill.style.width = Math.min(p, 100) + '%';
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(updateStickyBar, 200);
+        });
+
+        // --- Cấu hình slider ---
+        const sliders = [{
+            id: 'about',
+            imgId: 'about-img',
+            counterId: 'about-counter',
+            dotsId: 'about-dots',
+            images: IMAGE_PATHS.about,
+            current: 0
+        }, {
+            id: 'need',
+            imgId: 'need-img',
+            counterId: 'need-counter',
+            dotsId: 'need-dots',
+            images: IMAGE_PATHS.need,
+            current: 0
+        }];
+
+        function updateSlider(slider, index) {
+            const total = slider.images.length;
+            if (index < 0) index = total - 1;
+            if (index >= total) index = 0;
+            slider.current = index;
+
+            const img = document.getElementById(slider.imgId);
+            if (img) img.src = slider.images[index];
+
+            const counter = document.getElementById(slider.counterId);
+            if (counter) counter.textContent = (index + 1) + ' / ' + total;
+
+            const dotsContainer = document.getElementById(slider.dotsId);
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('span');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+        }
+
+        function changeSlide(sliderId, direction) {
+            const slider = sliders.find(s => s.id === sliderId);
+            if (!slider) return;
+            updateSlider(slider, slider.current + direction);
+        }
+
+        function goToSlide(sliderId, index) {
+            const slider = sliders.find(s => s.id === sliderId);
+            if (!slider) return;
+            updateSlider(slider, index);
+        }
+
+        document.querySelectorAll('.slider-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const sliderId = this.dataset.slider;
+                const direction = this.classList.contains('prev') ? -1 : 1;
+                changeSlide(sliderId, direction);
+            });
+        });
+
+        document.querySelectorAll('.dots').forEach(dotsContainer => {
+            const sliderId = dotsContainer.id.replace('-dots', '');
+            dotsContainer.querySelectorAll('span').forEach(dot => {
+                dot.addEventListener('click', function() {
+                    goToSlide(sliderId, parseInt(this.dataset.index));
+                });
+            });
+        });
+
+        sliders.forEach(slider => updateSlider(slider, 0));
+    </script>
+
+</body>
+</html>
